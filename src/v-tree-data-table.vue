@@ -149,7 +149,6 @@ export default {
   },
 
   data: function () {
-    console.log('asdfsd', this.items)
     return {
       internalPagination: {},
       flattenedNodes: [],
@@ -166,7 +165,6 @@ export default {
       // this.$emit('load', this.internalPagination)
     },
     items () {
-      console.log()
       this.flattenNodes(this.items)
     },
     value () {

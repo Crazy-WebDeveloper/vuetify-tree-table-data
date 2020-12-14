@@ -79,7 +79,6 @@ new Vue({
      * @param {Object} pagination Pagination data from the DataTable
      */
     load(pagination) {
-      console.log('this is load func', pagination)
       this.pagination = pagination
       this.$nextTick(() => {
         this.items = [

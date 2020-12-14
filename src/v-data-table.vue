@@ -282,9 +282,6 @@ export default {
 
     getColumns (columns, data, columnsToRemove) {
       if (!Array.isArray(data)) return
-      console.log('this is getColumns', columns)
-      console.log('this is getColumns', data)
-      console.log('this is getColumns', columnsToRemove)
       if (columns.length === 0) {
         let foundColumns
         if (this.aggregateColumns) {
