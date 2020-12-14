@@ -4,7 +4,7 @@
 
 <template>
   <div class="v-tree-data-table">
-    <v-data-table ref="dataTable" v-model="selected" :show-select="selectAll" :items-per-page-text="rowsPerPageText" :items-per-page-options="rowsPerPageItems" :headers="computedHeaders" :data="flattenedNodes" :options="internalPagination" :server-items-length="totalItems" :loading="loading">
+    <v-data-table ref="dataTable" v-model="selected" :show-select="selectAll" :items-per-page-text="rowsPerPageText" :items-per-page-options="rowsPerPageItems" :headers="computedHeaders" :items="flattenedNodes" :options="internalPagination" :server-items-length="totalItems" :loading="loading">
       <template slot="no-data">
         <slot name="no-data">
           <tr>
@@ -84,16 +84,13 @@
 
 <script>
 import nodeHelper from './nodeHelper.js'
-import vDataTable from './v-data-table.vue'
 
 global.jQuery = require('jquery')
 var $ = global.jQuery
 window.$ = $
 
 export default {
-  components: {
-    'v-data-table': vDataTable
-  },
+ 
   props: {
     headers: {
       type: Array,
@@ -155,52 +152,7 @@ export default {
     console.log('asdfsd', this.items)
     return {
       internalPagination: {},
-      flattenedNodes: [
-        {
-          id: 1,
-          name: "Node 1",
-          description: "Root Node With Children",
-          depth: 1,
-          children: [
-            {
-              id: 3,
-              name: "Node 1.1",
-              description: "Child of Root",
-              depth: 2,
-              leaf: true,
-            },
-            {
-              id: 4,
-              name: "Node 1.2",
-              description: "Child of Root",
-              depth: 2,
-              children: [
-                {
-                  id: 5,
-                  name: "Node 1.2.1",
-                  description: "Child of 1.2",
-                  depth: 3,
-                  leaf: true,
-                },
-                {
-                  id: 6,
-                  name: "Node 1.2.2",
-                  description: "Child of 1.2",
-                  depth: 3,
-                  leaf: true,
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: 2,
-          name: "Node 2",
-          description: "Root Node No Children",
-          depth: 1,
-          leaf: true,
-        },
-      ],
+      flattenedNodes: [],
       overFolder: null,
       draggedNode: null,
       newParentNode: null,
